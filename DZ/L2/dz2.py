@@ -1,7 +1,6 @@
 print("dz2")
 
 num = int(input("Enter 4-digits number: "))
-print("This is the number: ", num)
 
 print("Variant 1")
 print(num // 1000)

@@ -1,0 +1,5 @@
+.gitignore
+*.ipynb
+.idea
+.ipynb_checkpoints
+.venv

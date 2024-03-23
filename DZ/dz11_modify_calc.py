@@ -23,12 +23,17 @@ while run:
     else:
         print("Type is not 'int' or 'float'", "\n", "BYE")
 
-    run_again = (input("Run again? (Y/N): ")).strip().lower()
-    if run_again == 'y':
-        run = True
-    elif run_again == 'n':
-        print('Bye:)')
-        run = False
-    else:
-        print('Incorrect input. Must be \'y\' or \'n\'. Bye.')
-        run = False
+    again = True
+    while again:
+        run_again = (input("Run again? (Y/N): ")).strip().lower()
+        if run_again == 'y':
+            run = True
+            again = False
+        elif run_again == 'n':
+            print('Bye:)')
+            run = False
+            again = False
+        else:
+            print('Incorrect input. Must be \'y\' or \'n\'.')
+            run = False
+            again = True

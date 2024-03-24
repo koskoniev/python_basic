@@ -1,23 +1,15 @@
-# x = int(input('(number1) '))
-# z = input('(+ - * /) ')
-# y = int(input('(number2) '))
-# if z == '+':
-#     result = x + y
-#     print(result)
-# elif z == '-':
-#     result = x - y
-#     print(result)
-# elif z == '*':
-#     result = x * y
-#     print(result)
-# elif z == '/':
-#     if y == 0:
-#         print("number 0! ")
-#     result = x / y
-#     print(result)
-# print("end")
-import timer
+# import string
+# import keyword
+import time
 
-print("Type is not 'int' or 'float'")
-#timer.set_timer(2000, print("0"))
-print(5 / 1.0)
+ms1 = time.time()
+print(ms1)
+
+i = 1
+while i < 1000000:
+    i += i
+
+print(i)
+ms2 = time.time()
+print(ms2)
+print(ms2 - ms1)

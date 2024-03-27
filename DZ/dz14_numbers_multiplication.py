@@ -1,13 +1,9 @@
-import string
-
-foo = "7654"
-print(foo)
-res = 1
-_len = len(foo)
-while _len - 1 > 1:
-    for i in foo:
-        num = int(i)
-        res *= num
+foo = input('Enter number: ')
+res = None
+while len(foo) > 1:
+    res = 1
+    for value in foo:
+        res *= int(value)
         foo = str(res)
-        _len = len(foo)
+res = int(res)
 print(res)

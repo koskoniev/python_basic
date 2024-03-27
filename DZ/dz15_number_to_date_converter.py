@@ -1,34 +1,25 @@
-# 0 -> 0 днів, 00:00:00
-# 224930 -> 2 дні, 14:28:50
-# 466289 -> 5 днів, 09:31:29
-# 950400 -> 11 днів, 00:00:00
-# 1209600 -> 14 днів, 00:00:00
-# 1900800 - > 22 дні, 00:00:00
-# 8639999 -> 99 днів, 23:59:59
-# 22493 -> 0 днів, 06:14:53
-# 7948799 -> 91 день, 23:59:59
+dt = dict.fromkeys(['d', 'h', 'm', 's', 'dn'], 0)
+dt['s'] = int(input("Enter seconds to convert: "))
 
-data = (0, 224930, 466289, 950400, 1209600, 1900800, 8639999, 22493, 7948799)
-for value in data:
-    _24 = 86400
-    _hr = 24
-    _sec = 3600
-    _min = 60
-    days, sec = divmod(value, _24)
-    hr, sec = divmod(sec, _sec)
-    mins, sec = divmod(sec, _min)
-    # print(days, hr, mins, sec)
-    dayqty = ''
-    if str(days)[-1] == 1:
-        dayqty = 'день'
-    elif (int(str(days)[-1]) >= 2) and (int(str(days)[-1]) <= 4):
-        dayqty = 'дні'
-    elif int(str(days)[-1]) == 0 or int(str(days)[-1]) >= 5 and int(str(days)[-1]) <= 19:
-        dayqty = 'днів'
-    hr = str(hr).zfill(2)
-    mins = str(mins).zfill(2)
-    sec = str(sec).zfill(2)
+_sec_24 = 86400
+_hr_24 = 24
+_sec_hr = 3600
+_min_hr = 60
 
-    # print(days, dayqty, ',', hr, mins, sec)
-    the_date = f'{days} {dayqty}, {hr}:{mins}:{sec}'
-    print(the_date)
+dt['d'], dt['s'] = divmod(dt['s'], _sec_24)
+dt['h'], dt['s'] = divmod(dt['s'], _sec_hr)
+dt['m'], dt['s'] = divmod(dt['s'], _min_hr)
+
+if dt['d'] == 1 or (dt['d'] > 20 and int(str(dt['d'])[-1]) == 1):
+    dt['dn'] = 'день'
+elif ((int(str(dt['d'])[-1]) >= 2) and (int(str(dt['d'])[-1]) <= 4)) and (dt['d'] < 5 or dt['d'] > 20):
+    dt['dn'] = 'дні'
+else:
+    dt['dn'] = 'днів'
+
+hh = str(dt['h']).zfill(2)
+mm = str(dt['m']).zfill(2)
+ss = str(dt['s']).zfill(2)
+
+the_date = f'{dt['d']} {dt['dn']}, {hh}:{mm}:{ss}'
+print(the_date)

@@ -2,7 +2,7 @@ def second_index(text, some_str):
     si = text.find(some_str) + 1
     if text.find(some_str, si) >= 0:
         return text.find(some_str, si)
-    if si == -1:
+    else:
         pass
 
 assert second_index("sims", "s") == 3, 'Test1'

@@ -1,5 +1,6 @@
 dt = dict.fromkeys(['d', 'h', 'm', 's', 'dn'], 0)
-dt['s'] = int(input("Enter seconds to convert: "))
+# dt['s'] = int(input("Enter seconds to convert: "))
+dt['s'] = 100_000
 
 _sec_24 = 86400
 _hr_24 = 24

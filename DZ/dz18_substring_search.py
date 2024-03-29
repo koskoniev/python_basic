@@ -3,7 +3,7 @@ def second_index(text, some_str):
     if text.find(some_str, si) >= 0:
         return text.find(some_str, si)
     else:
-        pass
+        return None
 
 assert second_index("sims", "s") == 3, 'Test1'
 assert second_index("find the river", "e") == 12, 'Test2'

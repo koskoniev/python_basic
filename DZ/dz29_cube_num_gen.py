@@ -3,13 +3,10 @@ from inspect import isgenerator
 
 def generate_cube_numbers(end):
     num = 2
-    # i = 2
-    # while num <= end:
     for i in range(num, end):
         num = i ** 3
         if num <= end:
             yield num
-            # i += 1
 
 
 gen = generate_cube_numbers(1)

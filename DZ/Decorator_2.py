@@ -3,9 +3,8 @@
 # Если хотябы один агрумент меньше нуля, возвращать None.
 def zero_check(fn):
     def wrapper(*args):
-        for i in args:
-            if i == 0:
-                return None
+        if 0 in args:
+            return None
         else:
             return fn(*args)
     return wrapper

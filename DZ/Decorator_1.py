@@ -2,21 +2,30 @@ import time
 import functools
 
 
-def dec(fn):
+def decorated(fn, time_begin=time.time()):
+    print(time_begin, decorated.__name__)
+    data = dict()
+    def wrapper(num):
+        nonlocal data
+        def get_res(n):
+            return fn(n)
+        result = get_res(num)
+        delta = time.time() - time_begin
 
-    def wrap(*args):
-        start = time.time()
-        # nonlocal start
-        res = fn(*args)
-        d = dict()
-        dt = time.time() - start
-        d["res"] = res
-        d["time"] = dt
-        return d
-    return wrap
+        data["result"] = result
+        data["delta"] = delta
+
+        return data["result"]
+    # print(time.time() - time_begin)
+    return wrapper
+    # return decorated
 
 
-@dec
+num_fib = 29
+
+
+@decorated
+# @functools.lru_cache()
 def fib(value):
     if value in (0, 1):
         return value
@@ -24,20 +33,6 @@ def fib(value):
         return fib(value - 2) + fib(value - 1)
 
 
-@dec
-def f_prime(check_num):
-    if check_num < 2 or check_num > 3 and ((check_num % 2 == 0) or (check_num > 10 and check_num % 5 == 0)):
-        return False
-    else:
-        range_len = lambda l: l if (l < 10) else (l // 2 + 1)
-        for divider in range(3, range_len(check_num), 2):
-            if check_num % divider == 0:
-                return False
-    return True
-
-
-# print(fib)
-# f = dec(fib)
-# print(fib.__name__)
-print(fib(28))
-# print(f_prime(99991))
+print(time.time(), "b")
+print(fib(num_fib))
+print(time.time(), "e")

@@ -14,7 +14,7 @@ def delete_html_tags(html_file, result_file='cleaned.txt'):
             html = html.replace(html[html.find("<"):html.find(">") + 1], "")
 
         html = html.split("\n")
-        outlet = ""
+        outlet = str()
 
         for i in range(len(html)):
             if html[i].count(" ") == len(html[i]):

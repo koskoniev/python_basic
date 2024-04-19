@@ -37,8 +37,8 @@ class Group:
     def find_student(self, last_name):
         for student in tuple(self.group):
             if student.last_name == last_name:
-                # print(str(student.last_name))
                 return student
+                # print(str(student.last_name))
 
     def __str__(self):
         all_students = ''

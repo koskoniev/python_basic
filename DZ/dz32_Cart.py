@@ -34,7 +34,7 @@ class Purchase:
         tmp = ''
         for item, cnt in self.products.items():
             tmp += f'{str(item.name)}: {cnt} pcs.\n'
-        return f"User: {self.user.name} {self.user.surname}\nItems:\n{tmp}"
+        return f"User: {self.user}\nItems:\n{tmp}"
 
     def get_total(self):
         total = 0

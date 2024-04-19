@@ -72,4 +72,5 @@ lemon: 4 pcs.
 apple: 10 pcs.
 """
 
-assert cart.get_total() == 40
+assert cart.get_total() == 40, "40!"
+print("OK")

@@ -17,7 +17,7 @@ class Student(Human):
         self.record_book = record_book
 
     def __str__(self):
-        return f"{self.last_name}"
+        return f"{self.first_name} {self.last_name}"
 
 
 class Group:
@@ -30,20 +30,18 @@ class Group:
         self.group.add(student)
 
     def delete_student(self, last_name):
-        for student in tuple(self.group):
-            if student.last_name == last_name:
-                self.group.remove(student)
+        if self.find_student(last_name):
+            self.group.remove(self.find_student(last_name))
 
     def find_student(self, last_name):
         for student in tuple(self.group):
             if student.last_name == last_name:
                 return student
-                # print(str(student.last_name))
 
     def __str__(self):
         all_students = ''
         for i in self.group:
-            all_students += f"{i.last_name} {i.gender} {i.age}\n"
+            all_students += f"{i.first_name} {i.last_name} {i.gender} {i.age}\n"
         return f'Number: {self.number}\n' + f'{all_students}'
 
 
@@ -53,13 +51,12 @@ gr = Group('PD1')
 gr.add_student(st1)
 gr.add_student(st2)
 print(gr)
-gr.find_student('Jobs')
+print(gr.find_student('Jobs'))
 assert str(gr.find_student('Jobs')) == str(st1), 'Test1'
 assert gr.find_student('Jobs2') is None, 'Test2'
 assert isinstance(gr.find_student('Jobs'), Student) is True, 'Метод поиска должен возвращать экземпляр'
 
 gr.delete_student('Taylor')
 print(gr)  # Only one student
-
 gr.delete_student('Taylor')  # No error!
 print("OK")

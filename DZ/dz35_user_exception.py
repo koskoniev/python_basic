@@ -1,4 +1,6 @@
+# from dz33_student_group import     Human,    Student,    Group
 from student_group import *
+
 
 st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
 st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')

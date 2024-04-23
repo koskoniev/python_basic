@@ -1,5 +1,4 @@
 class Human:
-
     def __init__(self, gender, age, first_name, last_name):
         self.gender = gender
         self.age = age
@@ -11,7 +10,6 @@ class Human:
 
 
 class Student(Human):
-
     def __init__(self, gender, age, first_name, last_name, record_book):
         super().__init__(gender, age, first_name, last_name)
         self.record_book = record_book
@@ -21,13 +19,15 @@ class Student(Human):
 
 
 class Group:
-
     def __init__(self, number):
         self.number = number
         self.group = set()
 
     def add_student(self, student):
-        self.group.add(student)
+        if len(self.group) < 10:
+            self.group.add(student)
+        else:
+            raise ValueError('Достигнут максимум')
 
     def delete_student(self, last_name):
         if self.find_student(last_name):
@@ -60,3 +60,13 @@ gr.delete_student('Taylor')
 print(gr)  # Only one student
 gr.delete_student('Taylor')  # No error!
 print("OK")
+
+user_list = []
+for i in range(10):
+    user_list.append((Student("male", i + 20, str(i), str(i), str(i))))
+
+for i in user_list:
+    try:
+        gr.add_student(i)
+    except ValueError as e:
+        print(e)

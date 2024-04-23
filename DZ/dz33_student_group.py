@@ -27,7 +27,7 @@ class Group:
         if len(self.group) < 10:
             self.group.add(student)
         else:
-            raise ValueError('Достигнут максимум')
+            raise UserException('Достигнут максимум пользователей:', len(self.group))
 
     def delete_student(self, last_name):
         if self.find_student(last_name):
@@ -43,6 +43,16 @@ class Group:
         for i in self.group:
             all_students += f"{i.first_name} {i.last_name} {i.gender} {i.age}\n"
         return f'Number: {self.number}\n' + f'{all_students}'
+
+
+class UserException(Exception):
+    def __init__(self, message, x):
+        super().__init__()
+        self.message = message
+        self.x = x
+
+    def exception_message(self):
+        return f"{self.message} {self.x}"
 
 
 st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
@@ -65,8 +75,10 @@ user_list = []
 for i in range(10):
     user_list.append((Student("male", i + 20, str(i), str(i), str(i))))
 
+# print(user_list)
+
 for i in user_list:
     try:
         gr.add_student(i)
-    except ValueError as e:
-        print(e)
+    except UserException as e:
+        print(e.exception_message())

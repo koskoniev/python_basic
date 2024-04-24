@@ -1,0 +1,71 @@
+ДЗ 34. Класс "Цифровой счетчик"
+
+Создайте класс цифрового счетчика. В классе реализовать методы:
+
+    установка максимального значения счетчика,
+
+    установка минимального значения счетчика
+
+    установка начального значения счетчика
+
+    Метод step_up увеличивает счетчик на 1. Метод можно вызвать до тех пор пока значение достигнет максимума. При достижении максимума следует выбросить (raise) исключение ValueError, с достигнутым максимумом описанием.
+
+    метод step_down уменьшает счетчик на 1. Метод можно вызвать до тех пор пока значение не достигнет минимума. При достижении минимума нужно выбросить (raise) исключение ValueError, с описанием, что достигнутый минимум
+
+    возврат текущего значения счетчика
+
+Начальное, минимальное и максимальное значение счетчика также может быть добавлено в метод инициализации экземпляра класса.
+
+Приблизительный каркас для класса и варианты проверки. Вам нужно дописать необходимое вместо pass
+
+Copy code
+class Counter:
+
+   def __init__(self, current=1, min_value=0, max_value=10):
+       self.current = current
+       self.min_value = min_value
+       self.max_value = max_value
+
+   def set_current(self, start):
+       self.current = start
+
+
+   def set_max(self, max_max):
+        pass
+
+   def set_min(self, min_min):
+       pass
+
+   def step_up(self):
+       pass
+
+   def step_down(self):
+       pass
+
+   def get_current(self):
+       return self.current
+
+counter = Counter()
+counter.set_current(7)
+counter.step_up()
+counter.step_up()
+counter.step_up()
+assert counter.get_current() == 10, 'Test1'
+try:
+    counter.step_up()  # ValueError
+except ValueError as e:
+    print(e) # Достигнут максимум
+assert counter.get_current() == 10, 'Test2'
+
+
+counter.set_min(7)
+counter.step_down()
+counter.step_down()
+counter.step_down()
+assert counter.get_current() == 7, 'Test3'
+try:
+    counter.step_down()  # ValueError
+except ValueError as e:
+    print(e) # Достигнут минимум
+assert counter.get_current() == 7, 'Test4'
+

@@ -1,0 +1,26 @@
+Дт 26. Найти первое слово
+
+Напишите функцию first_word , которая в переданной строке найдет первое слово.
+
+При решении задачи обратите внимание на следующие моменты:
+
+    В строке могут встречаться точки и/или запятые
+    Строка может начинаться с буквы или, например, с пробела или точки
+    В слове может быть апостроф и он является частью слова
+    Весь текст может быть представлен только одним словом и все
+Входящие параметры : Строка.
+
+Выходные параметры : Строка.
+
+Copy code
+def first_word(text):
+    """ Пошук першого слова """
+    pass
+  
+assert first_word("Hello world") == "Hello", 'Test1'
+assert first_word("greetings, friends") == "greetings", 'Test2'
+assert first_word("don't touch it") == "don't", 'Test3'
+assert first_word(".., and so on ...") == "and", 'Test4'
+assert first_word("hi") == "hi", 'Test5'
+assert first_word("Hello.World") == "Hello", 'Test6'
+print('OK')

@@ -1,0 +1,17 @@
+ДЗ 12. hashtag
+
+Пользователь вводит строку, Ваша задача – превратить строку в hashtag.
+
+Несколько правил:
+
+никаких символов из набора string.punctuation не должно быть, в том числе и пробелов;
+Итоговая длина hashtag должна быть не более 140 символов.
+каждое слово начинается с прописной буквы.
+если длина финишного хэштега больше 140 символов – обрезать итоговую строку до 140 символов.
+
+Примеры:
+
+Copy code
+'Python Community' -> #PythonCommunity
+'i like python community!' -> #ILikePythonCommunity
+'Should, I. subscribe? Yes!' -> #ShouldISubscribeYes

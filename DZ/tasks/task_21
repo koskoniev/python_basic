@@ -1,0 +1,19 @@
+ДЗ 21. Палиндром
+
+Ваша задача – написать функцию is_palindrome , которая будет проверять, является ли строка палиндромом.
+
+Палиндром - это такая строка, которая читается одинаково слева направо и с права налево без учета знаков пунктуации и размерности букв.
+
+Функция принимает на вход строку и возвращает булевое значение True или False
+
+Пример:
+
+Copy code
+def is_palindrome(text):
+    pass
+
+assert is_palindrome('A man, a plan, a canal: Panama') == True, 'Test1'
+assert is_palindrome('0P') == False, 'Test2'
+assert is_palindrome('a.') == True, 'Test3'
+assert is_palindrome('aurora') == False, 'Test4'
+print("ОК")

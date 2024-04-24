@@ -1,0 +1,36 @@
+ДЗ 36. Создание собственных модулей
+
+В этой задаче Вам необходимо сделать две вещи из предыдущего ДЗ.
+
+В класс Студента необходимо добавить метод сравнения. Сравнивать можно по тем строкам, которые возвращает метод __str__ Для того, чтобы сработала корректно вот эта проверка
+Copy code
+assert gr.find_student('Jobs') == st1
+Разнесите классы, которые использовали при выполнении задания о группе студентов по модулям.
+Убедитесь в работоспособности проекта – создайте файл main.py , в который необходимо импортировать нужные классы и запустить код проверки.
+
+Приблизительное содержимое файла main.py для проверки работоспособности.
+
+Copy code
+st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
+st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
+gr = Group('PD1')
+gr.add_student(st1)
+gr.add_student(st2)
+print(gr)
+assert gr.find_student('Jobs') == st1  # 'Steve Jobs'
+assert gr.find_student('Jobs2') is None
+
+gr.delete_student('Taylor')
+print(gr) # Only one student
+Результат оформит в виде zip-архива, где будут собраны все необходимые модули.
+
+Если при попытке добавления студента в группу вы увидите ошибку
+
+Copy code
+self.group.add(student)
+TypeError: unhashable type: 'Student'
+то добавьте в класс студента метод __hash__
+
+Copy code
+def __hash__(self):
+    return hash(str(self))

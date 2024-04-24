@@ -1,0 +1,23 @@
+ДЗ 17. Модифицировать строчку
+
+На вход функции correct_sentence передается одно предложение. Необходимо вернуть его исправленную копию так, чтобы оно всегда начиналось с прописной буквы и заканчивалось точкой.
+
+Обратите внимание, что все исправления необходимы. Если предложение уже заканчивается точкой, прибавлять еще одну не нужно, это будет ошибкой
+
+Входящие аргументы: string.
+
+Исходные доводы: string.
+
+Вместо этого pass необходимо написать Ваше решение.
+
+Copy code
+def correct_sentence(text):
+    pass
+
+assert correct_sentence("greetings, friends") == "Greetings, friends.", 'Test1'
+assert correct_sentence("hello") == "Hello.", 'Test2'
+assert correct_sentence("Greetings. Friends") == "Greetings. Friends.", 'Test3'
+assert correct_sentence("Greetings, friends.") == "Greetings, friends.", 'Test4'
+assert correct_sentence("greetings, friends.") == "Greetings, friends.", 'Test5'
+print('ОК')
+

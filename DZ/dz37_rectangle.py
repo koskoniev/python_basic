@@ -14,7 +14,11 @@ class Rectangle:
 
     def __add__(self, other):
         if isinstance(other, Rectangle):
-            return Rectangle(1, self.get_square() + other.get_square())
+            for side in (self.width, self.height, other.width, other.height):
+                if ((self.get_square() + other.get_square()) % side) == 0:
+                    return Rectangle(side, (self.get_square() + other.get_square()) / side)
+                else:
+                    return Rectangle(1, self.get_square() + other.get_square())
         return NotImplemented
 
     def __mul__(self, n):
